@@ -1,4 +1,4 @@
-# CST276SRSDOD
+# CST407SRSDOD
 Data Oriented Design
 
 Project Name(s):  
@@ -7,24 +7,56 @@ Project Name(s):
 
 Purposes:  
 
-    - Learn to use C++ concurrency library.  
     - Understand Data Oriented Design.  
+    - Learn to use C++ concurrency library.  
+    - Practice using the C++ random number generator and clocks.  
 
 Specification:  
 
-Create an 2 dimensional array of 479001600 total unsigned ints.  
-Fill the array with random values \[0, 256).  
-Divide the array into N chunks, where N is \[1, 33).  
-Create N C++ threads or tasks to calculate the number of values greater than M where M is \[0, 256].  
+Create an contiguous array of bytes (std::byte or unsigned char) in 2 dimensions.  
+Fill the array with random values in the range \[0, 256).  
+Create N C++ threads or N C++ tasks to calculate the number of values greater than M where M is \[0, 256).  
 
-For each test case collect data for the time it takes to complete and graph it. 
-
-The independent variables are:  
-- Number of threads/tasks.  
-- Direct increment of total array vs thread local increment of total array.  
-- Row vs Column order traversal of the data.  
-- Maximum value threshold, choose 100 evenly spread data points.  
+The tests use:  
+- Number of threads and/or number of tasks.  
+- Thread global increment of total array vs thread local increment of total array.  
+- Row and column order traversal of the data.  
+- Maximum value threshold.  
 
 Count the number of values that exceed the threshold.  
+
+Measure the time it takes to complete and graph it as the dependent variable.  
+
+Before coding, write your hypothesis for the results.  
+
+You will create 2 graphs as follows:
+
+1) Row/Column Major  
+
+Independent variable:  
+- Where N == \[1, 5000), create square array\[N]\[N] (Tip: Use a vector<byte> and divide into chunks.)  
+
+Compare:  
+- Row vs Column order traversal.  
+
+Constants:  
+- Single threaded.  
+- Maximum value threshold == 127.  
+
+---
+
+2) Thread Local Storage
+
+Independent variable:  
+- Number of threads.  
+
+Compare:  
+- Thread global increment of total array vs thread local increment of total array.  
+- Maximum value threshold == 10 and 200.  
+
+Constants:  
+- Row order traversal  
+- Thread concurrency (not tasks)  
+- Where N == 5000, create square array\[N]\[N] (Tip: Use a vector<byte> and divide into chunks.)  
 
 ###
