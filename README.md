@@ -23,7 +23,7 @@ The independent variables are:
 - Number of threads/tasks.  
 - Direct increment of total array vs thread local increment of total array.  
 - Row vs Column order traversal of the data.  
-- Maximum value threshold, choose 100 data points.  
+- Maximum value threshold, choose 100 evenly spread data points.  
 
 Count the number of values that exceed the threshold.  
 
