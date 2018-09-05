@@ -13,28 +13,25 @@ Purposes:
 
 Specification:  
 
-Create an contiguous array of bytes (std::byte or unsigned char) in 2 dimensions.  
-Fill the array with random values in the range \[0, 256).  
-Create N C++ threads or N C++ tasks to calculate the number of values greater than M where M is \[0, 256).  
+This SRS contains 2 parts.  
 
-The tests use:  
-- Number of threads and/or number of tasks.  
-- Thread global increment of total array vs thread local increment of total array.  
-- Row and column order traversal of the data.  
-- Maximum value threshold.  
+For both parts of the SRS, you will need to do the following:  
+- Create an contiguous array of bytes (std::byte or unsigned char) in 2 dimensions.  Tip: Use a vector<byte> and divide into chunks if your memory stack is too small.  
+- Fill the array with uniformly distributed random values in the range \[0, 256).  
+- Calculate the number of values greater than T where T is \[0, 256).  
 
-Count the number of values that exceed the threshold.  
+Count the number of values greater than the threshold T.  
 
-Measure the time it takes to complete and graph it as the dependent variable.  
+Measure the time it takes to complete counting and graph the result as the dependent variable.  
 
-Before coding, write your hypothesis for the results.  
+Before coding, write your hypothesis results in your REPORT.md file predicting the basic shape of the resulting graphs. There are no points having your hypothesis confirmed, but a well thought out hypothesis will earn you points. When completed, review your hypothesis and why your hypothesis was confirmed or refuted. 
 
-You will create 2 graphs as follows:
+Create graphs as follows to test both your hypothesis:  
 
 1) Row/Column Major  
 
 Independent variable:  
-- Where N == \[1, 5000), create square array\[N]\[N] (Tip: Use a vector<byte> and divide into chunks.)  
+- Where N == \[1, 5000), create square array\[N]\[N]
 
 Compare:  
 - Row vs Column order traversal.  
@@ -48,7 +45,7 @@ Constants:
 2) Thread Local Storage
 
 Independent variable:  
-- Number of threads.  
+- Number of tasks.  
 
 Compare:  
 - Thread global increment of total array vs thread local increment of total array.  
@@ -56,7 +53,6 @@ Compare:
 
 Constants:  
 - Row order traversal  
-- Thread concurrency (not tasks)  
 - Where N == 5000, create square array\[N]\[N] (Tip: Use a vector<byte> and divide into chunks.)  
 
 ###
