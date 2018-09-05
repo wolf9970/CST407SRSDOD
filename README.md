@@ -52,7 +52,7 @@ Independent variable:
 
 Compare:  
 - Thread global increment of total array vs thread local increment of total array.  
-- Maximum value threshold == 10 and 200.  
+- Maximum value threshold == 0, 63, 127, 191 and 254.  
 
 Constants:  
 - Row order traversal  
