@@ -48,7 +48,7 @@ Independent variable:
 - Number of tasks.  
 
 Compare:  
-- Thread global increment of total array vs thread local increment of total array.  
+- Thread global increment of total array vs local increment.  
 - Maximum value threshold == 0, 63, 127, 191 and 254.  
 
 Constants:  
